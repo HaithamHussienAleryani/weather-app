@@ -1,16 +1,16 @@
 
 import './App.css'
-import {Button} from "@/components/ui/button.tsx";
+import {BrowserRouter} from "react-router-dom";
+
 
 function App() {
 
 
   return (
     <>
-     <div>
-         SSSS
-         <Button >Click me</Button>
-     </div>
+     <BrowserRouter>
+         
+     </BrowserRouter>
     </>
   )
 }
