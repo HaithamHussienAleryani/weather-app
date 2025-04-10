@@ -5,12 +5,16 @@ import Layout from "@/components/layout.tsx";
 import {ThemeProvider} from "@/components/theme-provider.tsx";
 import Dashboard from "@/pages/dashboard.tsx";
 import CityPage from "@/pages/city-pages.tsx";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 
 
 function App() {
 
+    const queryClient = new QueryClient();
 
   return (
+      <QueryClientProvider client={queryClient}>
      <BrowserRouter>
         <ThemeProvider defaultTheme={'dark'}>
            <Layout>
@@ -21,6 +25,8 @@ function App() {
            </Layout>
         </ThemeProvider>
      </BrowserRouter>
+          <ReactQueryDevtools initialIsOpen={false}/>
+      </QueryClientProvider>
   )
 }
 
