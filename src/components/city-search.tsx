@@ -20,12 +20,17 @@ import {useFavorites} from "@/hooks/use-favorite.ts";
 // import { useFavorites } from "@/hooks/use-favorite";
 
 export function CitySearch() {
+
     const [open, setOpen] = useState(false);
+
     const [query, setQuery] = useState("");
+
     const navigate = useNavigate();
 
     const {data: locations, isLoading} = useLocationSearch(query);
+
     const {favorites} = useFavorites();
+
     const {history, clearHistory, addToHistory} = useSearchHistory();
 
     const handleSelect = (cityData: string) => {
@@ -41,7 +46,7 @@ export function CitySearch() {
         });
 
         setOpen(false);
-        navigate(`/city/${name}?lat=${lat}&lon=${lon}`);
+        navigate(`/cities/${name}?lat=${lat}&lon=${lon}`);
     };
 
     return (
